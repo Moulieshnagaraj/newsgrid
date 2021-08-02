@@ -1,0 +1,444 @@
+:root{
+    --primary-color:#c22727;
+    --secondary-color:#f99500;
+    --light-color:#f3f3f3;
+    --max-width:1100px;
+    --dark-color:#333;
+}
+
+.category {
+    --sports-color:#f99500;
+    --ent-color:#a66bbe;
+    --tech-color:#009cff;
+}
+
+* {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    line-height: 1.5;
+    background:var(--light-color);
+}
+
+a {
+    color:#333;
+    text-decoration:none;
+    font-size: bold;
+}
+
+p{
+    margin:0.3rem 0;
+}
+
+ul {
+    list-style-type:none;
+}
+
+img {
+    width:100%;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Staatliches", cursive;
+    margin-bottom:.55rem;
+    line-height: 1.3;
+}
+
+/* Utility */
+.container {
+    max-width: var(--max-width);
+    margin:auto;
+    padding:0 2rem;
+    overflow:hidden;
+}
+
+.category {
+    display:inline-block;
+    color:#fff;
+    font-size: .55rem;
+    text-transform: uppercase;
+    padding:0.4rem 0.6rem;
+    border-radius:15px;
+    margin-bottom:0.5rem;
+}
+
+.category-sport { background:var(--sports-color);}
+.category-ent { background:var(--ent-color);}
+.category-tech { background:var(--tech-color);}
+
+.btn {
+    display: inline-block;
+    border:none;
+    background:#333;
+    color:#fff;
+    padding:0.4rem 0.6rem;
+    transition: border-radius 0.4s ease;
+}
+
+.btn-primary{background-color: var(--primary-color);}
+.btn-secondary{background-color: var(--secondary-color);}
+.btn-light{background-color: var(--light-color);}
+
+.btn-block {
+    display: block;
+    width:100%;
+    text-align: center;
+}
+.btn:hover {
+    opacity: 0.9;
+    border-radius:5px;
+}
+
+.card{
+    background:#fff;
+    padding:1rem;
+}
+
+.bg-dark {
+    background:var(--dark-color);
+    color:#fff;
+}
+.bg-light {
+    background:var(--light-color);
+    color:#fff;
+}
+.bg-primary {
+    background:var(--primary-color);
+    color:#fff;
+}
+
+.bg-secondary {
+    background:var(--secondary-color);
+    color:#fff;
+}
+
+.py-1{padding:1.5rem 0;}
+.py-2{padding:2rem 0;}
+.py-3{padding:3rem 0;}
+.p-1{padding:1.5rem;}
+.p-2{padding:2rem;}
+.p-3{padding:3rem;}
+
+.list li{
+    padding:0.5rem 0;
+    border-bottom: #555 dotted 1px;
+    width:90%;
+}
+
+.list li a:hover {
+    color:var(--secondary-color) !important;
+}
+
+.l-heading {
+    font-size: 3rem;
+}
+
+.meta {
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    background:#eee;
+    padding:0.5rem;
+}
+
+.meta .category {
+    margin-top:0.4rem;
+}
+.bg-dark h1,
+.bg-dark h2,
+.bg-dark h3,
+.bg-dark a,
+.bg-primary h1,
+.bg-primary h2,
+.bg-primary h3,
+.bg-primary a,
+.bg-secondary h1,
+.bg-secondary h2,
+.bg-secondary h3,
+.bg-secondary a{
+    color: #fff;
+}
+
+
+#main-nav {
+    background:#fff;
+    position:sticky;
+    top:0;
+    z-index:2;
+}
+
+#main-nav .container {
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr;
+    padding:1rem;
+    align-items:center;
+}
+
+#main-nav .logo {
+    width:180px;
+}
+
+/* Social media widgets */
+#main-nav .social {
+    justify-self: center;
+}
+#main-nav .social i{
+    color:#777;
+    margin-right:0.4rem;
+    position:relative;
+}
+
+#main-nav .social i::after{
+    content:'';
+    display: block;
+    position:absolute;
+    bottom:-2px;
+    left:0;
+    width:100%;
+    height:2px;
+    background:red;
+    transition: right;
+    transform:scaleX(0);
+    transition:transform 0.5s ease;
+}
+
+#main-nav .social i:hover::after{
+    transform:scaleX(1);
+    transform-origin: left;
+}
+
+/* About page  */
+.page-container {
+    display:grid;
+    grid-template-columns: 5fr 2fr;
+    grid-gap:1.5rem;
+    margin:1.5rem 0;
+}
+
+.page-container >*:first-child {
+    grid-row:1 / span 4;
+}
+
+
+
+
+/* Navigation menu using hamburger menu and bit animation */
+.menu-wrap {
+    /* It will not allows to scroll the screen and focus lot more on the menu items */
+    position:fixed;  /*This position takes only the content space litrallay inline*/
+    top:0;
+    right:2rem;
+    /* It should visible to the user than the overlay color */
+    z-index:2;
+}
+
+.menu-wrap .toggler {
+
+    /* Position the checkbox absolute --> occupies the limited space (inline) incresing the width and the height   */
+    position:absolute;
+    top:0;
+    right:0;
+    width:50px;
+    height: 50px;
+    cursor:pointer;
+    z-index:2;
+    opacity:0;
+}
+
+.hamburger >div {
+    /* border:2px rgb(19, 1, 1) solid; */
+    z-index: 3;
+}
+
+.hamburger {
+    position:absolute;
+    top:0;
+    right:0;
+    width:60px;
+    height:60px;
+    background:#fff;
+    padding:1rem;
+    z-index: 1;
+    /* Centering the lines inside the hamburger container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburger >div {
+    position: relative;
+    flex: none;
+    background-color:#c22727;
+    width:100%;
+    height:2px;
+    transition: all 0.4s ease-in;
+    display: flex;
+}
+
+.menu-wrap .hamburger >div::before,
+.menu-wrap .hamburger >div::after {
+    content:'';
+    position:absolute;
+    top:10px;
+    width:100%;
+    height:2px;
+    background:#c22727;
+    z-index: 1;
+}
+
+.menu-wrap .hamburger >div::after {
+    top:-10px;
+}
+
+/* Animating the hamburger menu when the check box is checked */
+.toggler:checked + .hamburger > div {
+    transform:rotate(135deg);
+}
+
+.toggler:checked + .hamburger >div::after,
+.toggler:checked + .hamburger >div::before {
+    top:0;
+    transform:rotate(90deg);
+}
+
+.toggler:checked:hover + .hamburger > div {
+    transform: rotate(230deg);
+}
+
+.menu {
+    position:relative;
+    top:10px;
+    height:110px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    /* z-index:3; */
+    opacity: 0;
+    transition:all 0.5s linear;
+}
+
+.menu ul li{
+    margin-top:10px;
+    text-align: center;
+}
+
+.menu ul li a.current{
+    background-color: var(--primary-color);
+    padding:0.3rem;
+    color:#fff;
+    border-radius: 2px;
+}
+
+.toggler:checked ~ .menu {
+    opacity: 1;
+    transform: translateY(60px);
+}
+
+.toggler:checked ~ .menu ul li a:hover {
+    background:var(--light-color);
+    border-radius: 2px;
+    padding:5px;
+    color:#333;
+}
+
+
+/* Showcase Area */
+#showcase {
+    color:#fff;
+    background:#333;
+    padding:2rem;
+    position:relative;
+}
+
+#showcase::before {
+    content: "";
+    position:absolute;
+    top:0;
+    left:0;
+    background:url("./image_resources/image_resources/featured.jpg") no-repeat center center/cover;
+    width:100%;
+    height:100%;
+    opacity:0.4;
+}
+
+#showcase .showcase-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    height:50vh;
+}
+
+#showcase .showcase-content {
+    z-index: 1;
+
+}
+
+
+#showcase .showcase-content p{
+    margin-bottom:1rem;
+}
+
+/* Home Articles */
+#home-article .articles-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+}
+
+#home-article .articles-container > *:first-child,
+#home-article .articles-container > *:last-child{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap:1rem;
+    grid-column:1 / span 2;
+}
+
+#home-article .articles-container > *:last-child {
+    grid-column: 2 / span 2;
+}
+
+
+/* Footer */
+#main-footer {
+    background: var(--dark-color);
+    color:#fff;
+}
+#main-footer img {
+    width:150px;
+}
+#main-footer a{
+    color:#fff;
+}
+#main-footer .footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap:1.5rem;
+}
+
+#main-footer .footer-container > *:last-child {
+    background:#444;
+    display: grid;
+    grid-column: 1 / span 4;
+    padding:0.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+#main-footer .footer-container input[type='email'] {
+    width:90%;
+    padding:0.5rem;
+    margin-bottom:0.5rem;
+}
+
+#main-footer .footer-container input[type='submit'] {
+    width:90%;
+    padding:0.5rem;
+    margin-bottom:0.5rem ;
+}
